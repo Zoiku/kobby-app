@@ -1,0 +1,19 @@
+.MenuComponent {
+  width: 300px;
+  height: 100%;
+  border-right: 2px solid #c5c5c5;
+
+  .inner_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .menu_list {
+      border: 2px solid red;
+      
+      .menu_list_items {
+        list-style: none;
+      }
+    }
+  }
+}

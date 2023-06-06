@@ -1,0 +1,24 @@
+.LayoutComponent {
+  height: 100vh;
+
+  .inner_container {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+
+    & > div {
+      height: 100%;
+    }
+
+    & > div:nth-child(2) {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      & > div {
+        width: 700px;
+      }
+    }
+  }
+}

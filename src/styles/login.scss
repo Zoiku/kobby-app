@@ -1,0 +1,14 @@
+.LoginPage {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .inner_container {
+    .box_form_container {
+      & > div:not(:last-child) {
+        margin: 0 0 10px 0;
+      }
+    }
+  }
+}
