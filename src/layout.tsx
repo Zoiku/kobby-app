@@ -6,12 +6,10 @@ const Layout = () => {
   return (
     <div className="LayoutComponent">
       <div className="inner_container">
-        <div>
-          <Menu />
-        </div>
+        <Menu />
 
-        <div>
-          <div>
+        <div className="main_dashboard_work_space_container">
+          <div className="main_dashboard_work_space">
             <Outlet />
           </div>
         </div>

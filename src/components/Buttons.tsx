@@ -3,7 +3,6 @@ import { Button, styled } from "@mui/material";
 export const Button1 = styled(Button)({
   boxShadow: "none",
   textTransform: "none",
-  padding: "10px",
   transition: "all 0.2s ease",
   fontFamily: [
     "-apple-system",

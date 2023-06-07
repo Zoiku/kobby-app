@@ -1,35 +1,51 @@
 import "../styles/Menu.scss";
+import AccountProfileMenu from "./AccountProfileMenu";
+import {
+  GroupsRounded,
+  Inventory2Rounded,
+  SummarizeRounded,
+} from "@mui/icons-material/";
 import { NavLink } from "react-router-dom";
 
 const Menu = () => {
-  const defaultStyle = {
-    fontSize: "inherit",
-    color: "inherit",
-    textDecoration: "inherit",
-  };
+  
 
   return (
     <div className="MenuComponent">
-      <div className="inner_container">
-        <ul className="menu_list">
-          <li className="menu_list_items">
-            <NavLink style={defaultStyle} to="/users">
-              Users
-            </NavLink>
-          </li>
+      <div className="menu_component_inner_container">
+        <div className="account_profile_menu">
+          <AccountProfileMenu />
+          <div>User</div>
+        </div>
 
-          <li className="menu_list_items">
-            <NavLink style={defaultStyle} to="/inventory">
-              Inventory
-            </NavLink>
-          </li>
-
-          <li className="menu_list_items">
-            <NavLink style={defaultStyle} to="/reports">
-              Reports
-            </NavLink>
-          </li>
-        </ul>
+        <div className="menu_list_container">
+          <div className="menu_list">
+            <div className="menu_items_container">
+              <NavLink className="menu_items" to="/inventory">
+                <div className="menu_item_icons_container">
+                  <Inventory2Rounded className="menu_item_icons" />
+                </div>
+                <div className="menu_title">Inventory</div>
+              </NavLink>
+            </div>
+            <div className="menu_items_container">
+              <NavLink className="menu_items" to="/reports">
+                <div className="menu_item_icons_container">
+                  <SummarizeRounded className="menu_item_icons" />
+                </div>
+                <div className="menu_title">Reports</div>
+              </NavLink>
+            </div>
+            <div className="menu_items_container">
+              <NavLink className="menu_items" to="/users">
+                <div className="menu_item_icons_container">
+                  <GroupsRounded className="menu_item_icons" />
+                </div>
+                <div className="menu_title">Users</div>
+              </NavLink>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

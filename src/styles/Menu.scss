@@ -1,18 +1,79 @@
 .MenuComponent {
-  width: 300px;
   height: 100%;
-  border-right: 2px solid #c5c5c5;
+  transition: width 0.5s ease;
+  overflow: clip;
+  background: #24252a;
+  width: 60px;
 
-  .inner_container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  &:hover {
+    width: 200px;
+  }
 
-    .menu_list {
-      border: 2px solid red;
-      
-      .menu_list_items {
-        list-style: none;
+  .menu_component_inner_container {
+    padding: 50px 0 0 0;
+
+    .account_profile_menu {
+      display: flex;
+      font-weight: 800;
+      font-size: small;
+
+      & > div:nth-child(1) {
+        min-width: 58px !important;
+        display: flex;
+        justify-content: center;
+      }
+
+      & > div:nth-child(2) {
+        color: rgb(223, 223, 223);
+      }
+
+      & > div {
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    .menu_list_container {
+      width: 100%;
+
+      .menu_list {
+        margin: 30px 0 0 0;
+
+        & > div:not(:last-child) {
+          margin: 20px 0;
+        }
+
+        .menu_items_container {
+          .active {
+            color: #fff !important;
+            font-weight: 800;
+          }
+
+          .menu_items {
+            font-size: inherit;
+            text-decoration: inherit;
+            color: inherit;
+            display: flex;
+            color: gray;
+            transition: all 0.2s ease;
+
+            & > div:nth-child(1) {
+              min-width: 58px !important;
+              display: flex;
+              justify-content: center;
+            }
+
+            & > div {
+              display: flex;
+              align-items: center;
+            }
+
+            .menu_title {
+              font-size: small;
+              font-weight: 700;
+            }
+          }
+        }
       }
     }
   }
