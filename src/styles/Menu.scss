@@ -3,7 +3,7 @@
   transition: width 0.5s ease;
   overflow: clip;
   background: #24252a;
-  width: 60px;
+  width: 63px;
 
   &:hover {
     width: 200px;
@@ -18,7 +18,7 @@
       font-size: small;
 
       & > div:nth-child(1) {
-        min-width: 58px !important;
+        min-width: 60px;
         display: flex;
         justify-content: center;
       }
@@ -45,8 +45,14 @@
 
         .menu_items_container {
           .active {
-            color: #fff !important;
-            font-weight: 800;
+            color: white !important;
+
+            .menu_item_icons_container {
+              .menu_item_icons {
+                background: #efefef43;
+                animation: ripple 2s ease infinite;
+              }
+            }
           }
 
           .menu_items {
@@ -58,14 +64,20 @@
             transition: all 0.2s ease;
 
             & > div:nth-child(1) {
-              min-width: 58px !important;
-              display: flex;
-              justify-content: center;
+              min-width: 60px;
             }
 
             & > div {
               display: flex;
+              justify-content: center;
               align-items: center;
+            }
+
+            .menu_item_icons_container {
+              .menu_item_icons {
+                padding: 6px;
+                border-radius: 2px;
+              }
             }
 
             .menu_title {

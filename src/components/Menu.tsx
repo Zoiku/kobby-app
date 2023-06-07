@@ -8,8 +8,6 @@ import {
 import { NavLink } from "react-router-dom";
 
 const Menu = () => {
-  
-
   return (
     <div className="MenuComponent">
       <div className="menu_component_inner_container">

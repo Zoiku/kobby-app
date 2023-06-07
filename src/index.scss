@@ -10,7 +10,6 @@ body {
 .main_table_box_container {
   border: 2px solid #c5c5c5;
   border-radius: 5px;
-  padding: 10px;
   background: white;
 }
 
@@ -18,11 +17,11 @@ body {
   width: 100%;
   overflow: auto;
   border: 0 !important;
-  height: 350px !important;
+  height: 400px !important;
 }
 
 .main_table_title_container {
-  margin: 0 0 20px 0;
+  padding: 15px;
 
   & > div:not(:last-child) {
     margin: 0 0 0px 0;
@@ -35,5 +34,28 @@ body {
 
   & > div:nth-child(2) {
     font-size: small;
+  }
+}
+
+.dialog_title_container {
+  font-size: medium !important;
+}
+
+.modal_title_container {
+  padding: 10px;
+  background: #efefef;
+
+  & > div:nth-child(1) {
+    font-weight: 600;
+  }
+}
+
+.modal_body_container {
+  padding: 10px;
+}
+
+@keyframes ripple {
+  50% {
+    background: #efefef0c;
   }
 }
