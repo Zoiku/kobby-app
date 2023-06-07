@@ -6,19 +6,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import MuiDialog from "../components/Dialog";
 import MuiModal from "../components/Modal";
 
-export interface MuiDialogInterface {
-  dialogTitle: string;
-  openDeleteDialog: boolean;
-  toggleOpenDeleteDialog: (open: boolean) => () => void;
-}
-export interface MuiModalInterface {
-  openModal: boolean;
-  toggleOpenModal: (open: boolean) => () => void;
-  children: React.ReactNode;
-  modalTitle: string;
-}
-
-export const AddInventoryForm = () => (
+const AddInventoryForm = () => (
   <Box
     component="form"
     sx={{
@@ -37,6 +25,21 @@ const Inventory = () => {
   const [openDeleteDialog, setOpenDeleteDialog] = useState(false);
   const toggleOpenDeleteDialog = (open: boolean) => () => {
     setOpenDeleteDialog(open);
+  };
+  const handleDeleteDialogActions = (open: boolean) => () => {
+    switch (open) {
+      case true:
+        console.log("Deteling...");
+        setOpenDeleteDialog(false);
+        break;
+
+      case false:
+        setOpenDeleteDialog(false);
+        break;
+
+      default:
+        break;
+    }
   };
   const [selectionModel, setSelectionModel] = useState<null | Array<GridRowId>>(
     null
@@ -76,9 +79,10 @@ const Inventory = () => {
       </MuiModal>
 
       <MuiDialog
-        openDeleteDialog={openDeleteDialog}
-        toggleOpenDeleteDialog={toggleOpenDeleteDialog}
-        dialogTitle="Are you sure you want to delete selected rows"
+        openDialog={openDeleteDialog}
+        toggleOpenDialog={toggleOpenDeleteDialog}
+        handleDialogActions={handleDeleteDialogActions}
+        dialogTitle="Are you sure you want to delete selected rows?"
       />
 
       <Stack

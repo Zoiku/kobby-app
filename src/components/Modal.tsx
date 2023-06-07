@@ -1,6 +1,6 @@
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
-import { MuiModalInterface } from "../tables/Inventory";
+import { MuiModalInterface } from "../interfaces/index";
 import { modalBoxStyle } from "../styles/box";
 import { IconButton, Stack } from "@mui/material";
 import { Close } from "@mui/icons-material/";
@@ -12,7 +12,7 @@ const MuiModal = ({
   children,
 }: MuiModalInterface) => {
   return (
-    <Modal open={openModal}>
+    <Modal open={openModal} onClose={toggleOpenModal(false)} keepMounted>
       <Box sx={modalBoxStyle}>
         <Stack
           direction="row"

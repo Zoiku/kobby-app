@@ -7,7 +7,6 @@ import IconButton from "@mui/material/IconButton";
 
 const AccountProfileMenu = () => {
   const navigate = useNavigate();
-
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const toggleAccountProfile =
