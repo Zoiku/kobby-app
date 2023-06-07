@@ -1,7 +1,10 @@
 import Dialog from "@mui/material/Dialog";
-import DialogActions from "@mui/material/DialogActions";
-import DialogTitle from "@mui/material/DialogTitle";
 import { Transition } from "../components/Transition";
+import {
+  DialogContent,
+  DialogContentText,
+  DialogActions,
+} from "@mui/material/";
 import { dialogStyle } from "../styles/dialog";
 import { Button2 } from "./Buttons";
 import { MuiDialogInterface } from "../interfaces/index";
@@ -21,9 +24,11 @@ const MuiDialog = ({
       aria-describedby="alert-dialog-slide-description"
       sx={dialogStyle}
     >
-      <DialogTitle className="dialog_title_container">
-        {dialogTitle}
-      </DialogTitle>
+      <DialogContent>
+        <DialogContentText className="dialog_title_container">
+          {dialogTitle}
+        </DialogContentText>
+      </DialogContent>
       <DialogActions>
         <Button2
           onClick={handleDialogActions(false)}
@@ -32,7 +37,11 @@ const MuiDialog = ({
         >
           No
         </Button2>
-        <Button2 onClick={handleDialogActions(true)} variant="contained">
+        <Button2
+          onClick={handleDialogActions(true)}
+          variant="text"
+          color="inherit"
+        >
           Yes
         </Button2>
       </DialogActions>

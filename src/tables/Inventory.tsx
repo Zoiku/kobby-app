@@ -55,6 +55,13 @@ const Inventory = () => {
       reason: "No reason",
       amount: 200,
     },
+    {
+      id: 1,
+      date: "2022-01-01",
+      type: "Random",
+      reason: "No reason",
+      amount: 200,
+    },
   ];
   const columns = [
     { field: "date", headerName: "Date", width: 180 },
@@ -82,7 +89,11 @@ const Inventory = () => {
         openDialog={openDeleteDialog}
         toggleOpenDialog={toggleOpenDeleteDialog}
         handleDialogActions={handleDeleteDialogActions}
-        dialogTitle="Are you sure you want to delete selected rows?"
+        dialogTitle={
+          selectionModel && selectionModel?.length > 1
+            ? "Do you want to delete these inventories?"
+            : "Do you want to delete this inventory?"
+        }
       />
 
       <Stack

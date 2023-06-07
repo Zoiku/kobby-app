@@ -10,3 +10,15 @@ export const modalBoxStyle = {
   overflow: "clip",
   fontSize: "15px",
 };
+
+export const modalBoxStyle2 = {
+  position: "absolute",
+  right: 0,
+  width: 500,
+  height: "100%",
+  background: "white",
+  fontSize: "15px",
+  outline: "none",
+  border: "none",
+  overflow: "clip",
+};

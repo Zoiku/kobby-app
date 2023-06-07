@@ -3,9 +3,10 @@ import AccountProfileMenu from "./AccountProfileMenu";
 import {
   GroupsRounded,
   Inventory2Rounded,
-  SummarizeRounded,
+  BarChartRounded,
 } from "@mui/icons-material/";
 import { NavLink } from "react-router-dom";
+
 
 const Menu = () => {
   return (
@@ -29,7 +30,7 @@ const Menu = () => {
             <div className="menu_items_container">
               <NavLink className="menu_items" to="/reports">
                 <div className="menu_item_icons_container">
-                  <SummarizeRounded className="menu_item_icons" />
+                  <BarChartRounded className="menu_item_icons" />
                 </div>
                 <div className="menu_title">Reports</div>
               </NavLink>

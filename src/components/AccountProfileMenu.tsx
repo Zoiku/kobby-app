@@ -53,10 +53,9 @@ const AccountProfileMenu = () => {
         sx={{ padding: 0 }}
       >
         <Avatar
-          variant="square"
           sx={{
-            width: 30,
-            height: 30,
+            width: 35,
+            height: 35,
             background: "#1976d2",
             color: "white",
           }}
