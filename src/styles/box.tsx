@@ -17,7 +17,6 @@ export const modalBoxStyle2 = {
   width: 500,
   height: "100%",
   background: "white",
-  fontSize: "15px",
   outline: "none",
   border: "none",
   overflow: "clip",

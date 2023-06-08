@@ -11,3 +11,10 @@ export interface MuiModalInterface {
   children: React.ReactNode;
   modalTitle: string;
 }
+
+export interface chartInterface {
+  title: {
+    title: string;
+    titleHelper: string;
+  };
+}

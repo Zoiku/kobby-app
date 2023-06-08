@@ -54,13 +54,14 @@ const AccountProfileMenu = () => {
       >
         <Avatar
           sx={{
-            width: 35,
-            height: 35,
+            width: 40,
+            height: 40,
             background: "#1976d2",
             color: "white",
+            fontSize: 15,
           }}
         >
-          U
+          u
         </Avatar>
       </IconButton>
     </div>

@@ -107,6 +107,7 @@ const Inventory = () => {
             border: "1px solid #c5c5c5",
             display: "flex",
             alignItems: "center",
+            p: "4px 2px",
           }}
         >
           <div
