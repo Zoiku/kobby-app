@@ -13,11 +13,13 @@ export const modalBoxStyle = {
 
 export const modalBoxStyle2 = {
   position: "absolute",
-  right: 0,
+  top: "10px",
+  bottom: "10px",
+  right: "10px",
   width: 500,
-  height: "100%",
-  background: "white",
   outline: "none",
   border: "none",
   overflow: "clip",
+  backgroundColor: "white",
+  borderRadius: 1,
 };

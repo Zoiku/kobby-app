@@ -4,7 +4,6 @@ import { MuiModalInterface } from "../interfaces/index";
 import { modalBoxStyle2 } from "../styles/box";
 import { IconButton, Stack } from "@mui/material";
 import { Close } from "@mui/icons-material/";
-
 import Slide from "@mui/material/Slide/Slide";
 
 const MuiModal = ({
