@@ -35,10 +35,12 @@
       }
 
       .main_dashboard_work_space_container {
+        padding: 10px;
+
         .main_dashboard_work_space {
           position: relative;
-          margin: 50px 0 0 0;
-          width: 96%;
+          margin: 0;
+          width: 100%;
         }
       }
     }

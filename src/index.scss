@@ -41,6 +41,17 @@ body {
   font-size: medium !important;
 }
 
+.drawer-title-container {
+  border-bottom: 1px solid #c5c5c5;
+  padding: 20px 0 10px 0;
+  text-align: center;
+
+  & > div {
+    font-weight: 600;
+    font-size: small;
+  }
+}
+
 .modal_title_container {
   padding: 10px;
   border-bottom: 1px solid #c5c5c5;
@@ -50,7 +61,8 @@ body {
   }
 }
 
-.modal_body_container {
+.modal_body_container,
+.drawer-body-container {
   padding: 10px;
 }
 

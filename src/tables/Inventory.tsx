@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { DataGrid, GridRowId } from "@mui/x-data-grid";
 import { Button2 } from "../components/Buttons";
 import { Stack, Paper, InputBase, Box } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import MuiDialog from "../components/Dialog";
-import MuiModal from "../components/Modal";
+import DrawerModal from "../components/DrawerModal";
 
 const AddInventoryForm = () => (
   <Box
@@ -18,9 +18,9 @@ const AddInventoryForm = () => (
 );
 
 const Inventory = () => {
-  const [openAddInventoryModal, setOpenAddInventoryModal] = useState(false);
-  const toggleOpenAddInventoryModal = (open: boolean) => () => {
-    setOpenAddInventoryModal(open);
+  const [openAddInventoryForm, setOpenAddInventoryForm] = useState(false);
+  const toggleOpenAddInventoryForm = (open: boolean) => () => {
+    setOpenAddInventoryForm(open);
   };
   const [openDeleteDialog, setOpenDeleteDialog] = useState(false);
   const toggleOpenDeleteDialog = (open: boolean) => () => {
@@ -29,7 +29,6 @@ const Inventory = () => {
   const handleDeleteDialogActions = (open: boolean) => () => {
     switch (open) {
       case true:
-        console.log("Deteling...");
         setOpenDeleteDialog(false);
         break;
 
@@ -55,13 +54,6 @@ const Inventory = () => {
       reason: "No reason",
       amount: 200,
     },
-    {
-      id: 1,
-      date: "2022-01-01",
-      type: "Random",
-      reason: "No reason",
-      amount: 200,
-    },
   ];
   const columns = [
     { field: "date", headerName: "Date", width: 180 },
@@ -70,20 +62,18 @@ const Inventory = () => {
     { field: "amount", headerName: "Amount", width: 180 },
   ];
   const handleAddInventory = () => {
-    setOpenAddInventoryModal(true);
+    setOpenAddInventoryForm(true);
   };
 
   return (
     <div>
-      <MuiModal
-        modalTitle="Add New Inventory"
-        openModal={openAddInventoryModal}
-        toggleOpenModal={toggleOpenAddInventoryModal}
+      <DrawerModal
+        openState={openAddInventoryForm}
+        toggleOpenState={toggleOpenAddInventoryForm}
+        title="Add Inventory Form"
       >
-        <div>
-          <AddInventoryForm />
-        </div>
-      </MuiModal>
+        <AddInventoryForm />
+      </DrawerModal>
 
       <MuiDialog
         openDialog={openDeleteDialog}

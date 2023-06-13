@@ -12,6 +12,20 @@ export interface MuiModalInterface {
   modalTitle: string;
 }
 
+export interface MuiMobileDrawerInterface {
+  openDrawer: boolean;
+  toggleOpenDrawer: (open: boolean) => () => void;
+  children: React.ReactNode;
+  drawerTitle: string;
+}
+
+export interface DrawerModalInterface {
+  openState: boolean;
+  toggleOpenState: (open: boolean) => () => void;
+  children: React.ReactNode;
+  title: string;
+}
+
 export interface chartInterface {
   title: {
     title: string;
