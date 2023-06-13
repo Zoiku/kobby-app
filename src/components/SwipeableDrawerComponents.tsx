@@ -11,3 +11,7 @@ export const Puller = styled(Box)(({ theme }) => ({
   top: 8,
   left: "calc(50% - 15px)",
 }));
+
+export const iOS =
+  typeof navigator !== "undefined" &&
+  /iPad|iPhone|iPod/.test(navigator.userAgent);

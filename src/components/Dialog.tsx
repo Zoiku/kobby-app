@@ -6,7 +6,7 @@ import {
   DialogActions,
 } from "@mui/material/";
 import { dialogStyle } from "../styles/dialog";
-import { Button2 } from "./Buttons";
+import { Button1 } from "./Buttons";
 import { MuiDialogInterface } from "../interfaces/index";
 
 const MuiDialog = ({
@@ -30,20 +30,20 @@ const MuiDialog = ({
         </DialogContentText>
       </DialogContent>
       <DialogActions>
-        <Button2
+        <Button1
           onClick={handleDialogActions(false)}
           variant="text"
           color="inherit"
         >
           No
-        </Button2>
-        <Button2
+        </Button1>
+        <Button1
           onClick={handleDialogActions(true)}
           variant="text"
           color="inherit"
         >
           Yes
-        </Button2>
+        </Button1>
       </DialogActions>
     </Dialog>
   );

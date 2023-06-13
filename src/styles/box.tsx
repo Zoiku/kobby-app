@@ -1,4 +1,4 @@
-export const modalBoxStyle = {
+export const modalBoxStyle1 = {
   position: "relative",
   top: "50%",
   left: "50%",
@@ -16,7 +16,7 @@ export const modalBoxStyle2 = {
   top: "10px",
   bottom: "10px",
   right: "10px",
-  width: 500,
+  width: 400,
   outline: "none",
   border: "none",
   overflow: "clip",

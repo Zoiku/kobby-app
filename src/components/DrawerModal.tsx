@@ -1,6 +1,6 @@
 import { DrawerModalInterface } from "../interfaces";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
-import { Puller } from "./SwipeableDrawerComponents";
+import { Puller, iOS } from "./SwipeableDrawerComponents";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 import { modalBoxStyle2 } from "../styles/box";
@@ -25,12 +25,16 @@ const DrawerModal = ({
         open={openState}
         onOpen={toggleOpenState(true)}
         onClose={toggleOpenState(false)}
+        disableBackdropTransition={!iOS}
+        disableDiscovery={iOS}
       >
-        <div className="drawer-title-container">
-          <Puller />
-          <div>{title}</div>
-        </div>
-        <div className="drawer-body-container">{children}</div>
+        <Box>
+          <div className="drawer-title-container">
+            <Puller />
+            <div>{title}</div>
+          </div>
+          <div className="drawer-body-container">{children}</div>
+        </Box>
       </SwipeableDrawer>
 
       <Modal

@@ -10,7 +10,7 @@ import {
   Filler,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
-import { chartInterface } from "../interfaces";
+import { ChartInterface } from "../interfaces";
 
 ChartJS.register(
   CategoryScale,
@@ -23,7 +23,7 @@ ChartJS.register(
   Filler
 );
 
-const Charts = ({ title }: chartInterface) => {
+const Charts = ({ title }: ChartInterface) => {
   const options = {
     responsive: true,
     plugins: {

@@ -1,27 +1,28 @@
 import { useState } from "react";
 import { DataGrid, GridRowId } from "@mui/x-data-grid";
-import { Button2 } from "../components/Buttons";
-import { Stack, Paper, InputBase, Box } from "@mui/material";
-import SearchIcon from "@mui/icons-material/Search";
+import { Button1, Button2 } from "../components/Buttons";
+import {
+  Stack,
+  Paper,
+  InputBase,
+  Box,
+  TextField,
+  FormControl,
+  InputLabel,
+  Select,
+  MenuItem,
+} from "@mui/material";
+import { Search as SearchIcon } from "@mui/icons-material/";
 import MuiDialog from "../components/Dialog";
 import DrawerModal from "../components/DrawerModal";
-
-const AddInventoryForm = () => (
-  <Box
-    component="form"
-    sx={{
-      "& > :not(style)": { margin: "0 0 10px 0" },
-    }}
-  >
-    <div>Inventory form goes here</div>
-  </Box>
-);
+import "../styles/Inventory.scss";
 
 const Inventory = () => {
   const [openAddInventoryForm, setOpenAddInventoryForm] = useState(false);
   const toggleOpenAddInventoryForm = (open: boolean) => () => {
     setOpenAddInventoryForm(open);
   };
+
   const [openDeleteDialog, setOpenDeleteDialog] = useState(false);
   const toggleOpenDeleteDialog = (open: boolean) => () => {
     setOpenDeleteDialog(open);
@@ -40,12 +41,14 @@ const Inventory = () => {
         break;
     }
   };
+
   const [selectionModel, setSelectionModel] = useState<null | Array<GridRowId>>(
     null
   );
   const onSelectionModelChange = (newSelectionModel: Array<GridRowId>) => {
     setSelectionModel(newSelectionModel);
   };
+
   const rows = [
     {
       id: 0,
@@ -61,8 +64,39 @@ const Inventory = () => {
     { field: "type", headerName: "Type", width: 180 },
     { field: "amount", headerName: "Amount", width: 180 },
   ];
+
   const handleAddInventory = () => {
     setOpenAddInventoryForm(true);
+  };
+
+  const AddInventoryForm = () => {
+    return (
+      <Box className="AddFormComponent" component="form">
+        <Box component="div" className="AddFormBox">
+          <Stack direction="row" justifyContent="space-between" spacing={1}>
+            <TextField name="name" label="Name" type="text" fullWidth />
+            <FormControl fullWidth>
+              <InputLabel>Inventory Type</InputLabel>
+              <Select label="Inventory Type">
+                <MenuItem>Unknown</MenuItem>
+              </Select>
+            </FormControl>
+          </Stack>
+          <Stack direction="row" justifyContent="space-between" spacing={1}>
+            <TextField name="amount" label="Amount" type="number" fullWidth />
+            <FormControl fullWidth>
+              <InputLabel>Reason</InputLabel>
+              <Select label="Reason">
+                <MenuItem>Unknown</MenuItem>
+              </Select>
+            </FormControl>
+          </Stack>
+          <Button1 fullWidth variant="contained">
+            Submit
+          </Button1>
+        </Box>
+      </Box>
+    );
   };
 
   return (
@@ -90,6 +124,7 @@ const Inventory = () => {
         sx={{ margin: "0 0 10px 0" }}
         direction="row"
         justifyContent="space-between"
+        spacing={1}
       >
         <Paper
           sx={{

@@ -29,6 +29,7 @@ export const Button2 = styled(Button)({
   boxShadow: "none",
   textTransform: "none",
   transition: "all 0.2s ease",
+  width: 100,
   fontFamily: [
     "-apple-system",
     "BlinkMacSystemFont",

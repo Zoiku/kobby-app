@@ -7,11 +7,11 @@
 }
 
 @media screen and (max-width: 800px) {
-  .ModalComponent {
-    display: none;
-  }
-
   .DrawerComponent {
     display: block;
+  }
+
+  .ModalComponent {
+    display: none;
   }
 }
