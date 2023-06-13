@@ -58,7 +58,7 @@ const AccountProfileMenu = () => {
             height: 40,
             background: "#1976d2",
             color: "white",
-            fontSize: 15,
+            fontSize: 20,
           }}
         >
           u

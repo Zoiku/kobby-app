@@ -1,48 +1,29 @@
 import "./styles/login.scss";
+import { useReducer } from "react";
+import { useNavigate } from "react-router-dom";
 import { Box, TextField } from "@mui/material";
 import { Button1 } from "./components/Buttons";
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-
-interface stateInterface {
-  request: {
-    payload: {};
-  };
-  response: {
-    error: {};
-    status: {};
-  };
-  loading: boolean;
-}
-
-const initialState: stateInterface = {
-  request: {
-    payload: {},
-  },
-  response: {
-    error: {},
-    status: {},
-  },
-  loading: false,
-};
+import { reducer, initialState } from "./reducer";
+import { reducerActionInterface } from "./interfaces";
+import { reducerActions } from "./reducer/actions";
 
 const Login = () => {
   const navigate = useNavigate();
-  const [state, setState] = useState(initialState);
-  const onInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setState({
-      ...state,
-      request: { payload: { [e.target.name]: e.target.value } },
-    });
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const action: reducerActionInterface = {
+      type: reducerActions.INPUT,
+      prop: e.target.name,
+      value: e.target.value,
+    };
+
+    dispatch(action);
   };
-  const handleSubmit = async (e: React.FormEvent) => {
+
+  const onSubmit = (e: React.FormEvent<HTMLInputElement>) => {
     e.preventDefault();
-    setState({ ...state, loading: true });
-    try {
-    } catch (error) {}
-    setState({ ...state, loading: false });
-  };
-  const simulateLogIn = () => {
+    console.log(state);
     navigate("/inventory", { replace: true });
   };
 
@@ -50,30 +31,32 @@ const Login = () => {
     <div className="LoginPage">
       <div className="inner_container">
         <Box
-          className="box_form_container"
           component="form"
-          onSubmit={handleSubmit}
+          className="box_form_container"
+          onSubmit={onSubmit}
         >
           <div>
             <TextField
-              size="small"
-              onChange={onInput}
-              label="email"
               name="email"
+              label="Email"
+              type="text"
+              size="small"
+              onChange={onChange}
               fullWidth
             />
           </div>
           <div>
             <TextField
-              size="small"
-              onChange={onInput}
-              label="password"
               name="password"
+              label="Password"
+              type="text"
+              size="small"
+              onChange={onChange}
               fullWidth
             />
           </div>
           <div>
-            <Button1 onClick={simulateLogIn} fullWidth variant="contained">
+            <Button1 type="submit" fullWidth variant="contained">
               Login
             </Button1>
           </div>

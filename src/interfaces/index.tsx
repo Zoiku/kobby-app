@@ -18,3 +18,16 @@ export interface ChartInterface {
     titleHelper: string;
   };
 }
+
+export interface reducerActionsInterface {
+  INPUT: string;
+  SEND_REQUEST: string;
+  FAILED_REQUEST: string;
+  SUCCESSFUL_REQUEST: string;
+}
+
+export interface reducerActionInterface {
+  type: string;
+  prop: string;
+  value: string;
+}

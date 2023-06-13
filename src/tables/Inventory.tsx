@@ -16,8 +16,13 @@ import { Search as SearchIcon } from "@mui/icons-material/";
 import MuiDialog from "../components/Dialog";
 import DrawerModal from "../components/DrawerModal";
 import "../styles/Inventory.scss";
+import { useReducer } from "react";
+import { reducer, initialState } from "../reducer";
+import { reducerActionInterface } from "../interfaces";
+import { reducerActions } from "../reducer/actions";
 
 const Inventory = () => {
+  const [state, dispatch] = useReducer(reducer, initialState);
   const [openAddInventoryForm, setOpenAddInventoryForm] = useState(false);
   const toggleOpenAddInventoryForm = (open: boolean) => () => {
     setOpenAddInventoryForm(open);
@@ -69,29 +74,56 @@ const Inventory = () => {
     setOpenAddInventoryForm(true);
   };
 
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const action: reducerActionInterface = {
+      type: reducerActions.INPUT,
+      prop: e.target.name,
+      value: e.target.value,
+    };
+
+    dispatch(action);
+  };
+
+  const onSubmit = (e: React.FormEvent<HTMLInputElement>) => {
+    e.preventDefault();
+    console.log(state);
+  };
+
   const AddInventoryForm = () => {
     return (
-      <Box className="AddFormComponent" component="form">
-        <Box component="div" className="AddFormBox">
+      <Box component="form" className="AddFormComponent" onSubmit={onSubmit}>
+        <Box className="AddFormBox">
           <Stack direction="row" justifyContent="space-between" spacing={1}>
-            <TextField name="name" label="Name" type="text" fullWidth />
+            <TextField
+              name="item"
+              label="Item"
+              type="text"
+              onChange={onChange}
+              fullWidth
+            />
             <FormControl fullWidth>
               <InputLabel>Inventory Type</InputLabel>
-              <Select label="Inventory Type">
+              <Select name="type" label="Inventory Type">
                 <MenuItem>Unknown</MenuItem>
               </Select>
             </FormControl>
           </Stack>
           <Stack direction="row" justifyContent="space-between" spacing={1}>
-            <TextField name="amount" label="Amount" type="number" fullWidth />
+            <TextField
+              name="amount"
+              label="Amount"
+              type="text"
+              onChange={onChange}
+              fullWidth
+            />
             <FormControl fullWidth>
               <InputLabel>Reason</InputLabel>
-              <Select label="Reason">
+              <Select name="reason" label="Reason">
                 <MenuItem>Unknown</MenuItem>
               </Select>
             </FormControl>
           </Stack>
-          <Button1 fullWidth variant="contained">
+          <Button1 type="submit" variant="contained" fullWidth>
             Submit
           </Button1>
         </Box>
